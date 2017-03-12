@@ -1,0 +1,19 @@
+<h2>Please add a new item<h2>
+<%= form_tag "/items", method: :post do%>
+<div>
+Brand: <input type="text" name="brand">
+</div>
+
+<div>
+Model: <input type="text" name="model">
+</div>
+
+<div>
+Price: <input type="text" name="price">
+</div>
+
+<div>
+Description: <input type="text" name="description">
+</div>
+<input type="submit" value="Add item!">
+<%end%>

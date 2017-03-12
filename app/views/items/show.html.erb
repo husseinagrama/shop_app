@@ -1,0 +1,10 @@
+<h1>Item Information</h1>
+<h4><%=@item.brand%><h4>
+<h4><%=@item.model%><h4>
+<h4><%=@item.price%><h4>
+<h4><%=@item.description%><h4>
+<%= form_tag "/items/#{@item.id}", method: :delete do %>
+<input type="submit" value="Delete Item">
+<% end %>
+
+<a href="/">Back to all items</a>
