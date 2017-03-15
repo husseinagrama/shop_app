@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "/shop_url" => "items#index"
   get "/" => "items#index"
   get "/items/new" => "items#new"
   post "/items" => "items#create"
