@@ -1,7 +1,14 @@
 <h1>Item Information</h1>
 <h4><%=@item.brand%><h4>
 <h4><%=@item.model%><h4>
+<h4><%if @item.discounted?%></h4>
+<p>Discount Item!</p>
+<%else%>
+<p>special Everyday value!</p>
+<%end%>
 <h4><%=@item.price%><h4>
+<h4>Tax: <%= number_to_currency(@item.tax)%></h4>
+<h4>You pay the low price of: <%= number_to_currency(@item.total)%>!</h4>
 <h4><%=@item.description%><h4>
 <%= form_tag "/items/#{@item.id}", method: :delete do %>
 <input type="submit" value="Delete Item">
