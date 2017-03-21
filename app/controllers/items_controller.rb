@@ -1,6 +1,24 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    
+    #@items = Item.all.order(params [:sort_by] => params [:sort_order])
+    #sort_attribute = params[:sort_by] || "brand"
+    #sort_attribute_order = params[:sort_order] || "asc"
+
+    sort_attribute = params[:sort_by]
+    discount = params[:discount]
+    
+    if sort_attribute
+      @items = Item.all.order(sort_attribute)
+    elsif discount
+      @items = Item.where("price < ?", 300)
+      #elsif params[:form_name]
+      #@products = Product.where("name LIKE ?"), params[:form_name]
+    else
+      @items = Item.all
+    end
+    
+
     render "index.html.erb"
   end
   def new
@@ -19,8 +37,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-    item_id = params[:id]
-    @item = Item.find_by(id: item_id)
+    item_id = params[:id] 
+    if params[:id] == "random"
+      @item = Item.all.sample
+    else
+      @item = Item.find_by(id: item_id)
+    end
     render "show.html.erb"
   end
   def edit
@@ -44,5 +66,8 @@ class ItemsController < ApplicationController
     @item.destroy
     render "delete.html.erb"
   end
+  #def search
+  # @products = Product.where("name LIKE ?"), params[:form_name]
+  #end
 end
 

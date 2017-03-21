@@ -33,9 +33,13 @@
            <li class="dropdown">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
              <ul class="dropdown-menu">
-               <li><a href="#">Action</a></li>
-               <li><a href="#">Another action</a></li>
-               <li><a href="#">Something else here</a></li>
+               <li><a href="/items?sort_by=brand asc">Sort by Brand</a></li>
+               <li><a href="/items?sort_by=model">Sort by Model</a></li>
+               <li><a href="/items?sort_by=price desc">Sort by Price</a></li>
+               <li><a href="/items?discount=true">Discount Item</a></li>
+               <!--<li><a href="/items?sort_by price&sort_order=asc">Sort by Price Ascending</a></li>-->
+               <li><a href="/items/random">Random item?</a></li>
+
                <li role="separator" class="divider"></li>
                <li><a href="#">Separated link</a></li>
                <li role="separator" class="divider"></li>
@@ -73,6 +77,10 @@
          <%= message.html_safe %>
        </div>
      <% end %>
+     <%= form_tag "/products", method: :post do %>
+     Search: <input type="text" name="form_name">
+     <input type="submit" value="Search!">
+     <%end%>
 
      <%= yield %>
 
