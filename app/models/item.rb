@@ -1,4 +1,9 @@
 class Item < ApplicationRecord
+  belongs_to :supplier
+  #def supplier
+   # Supplier.find_by(id: self.supplier_id)
+  #end
+  has_many :images
   def sale_message
     
     #if price.to_i < 200
@@ -23,9 +28,7 @@ class Item < ApplicationRecord
   def discounted?
     return price.to_f < 200  
   end
-  def supplier
-    Supplier.find_by(id: self.supplier_id)
-  end
+
+  
     
-  end
 end

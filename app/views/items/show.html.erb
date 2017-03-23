@@ -1,6 +1,10 @@
 <h1>Item Information</h1>
 <h4><%=@item.brand%><h4>
 <h4><%=@item.model%><h4>
+<h4><%=@item.supplier.name%></h4>
+<%@item.images.each do |image|%>
+<h4><%= image.url %></h4>
+<% end %>
 <h4><%if @item.discounted?%></h4>
 <p>Discount Item!</p>
 <%else%>

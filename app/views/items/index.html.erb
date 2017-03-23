@@ -1,6 +1,9 @@
 <h1>  Show Case</h1>
 <h2>  Welcome to our Shop!</h2>
 <blockquote class="imgur-embed-pub" lang="en" data-id="AaRi4kV"><a href="//imgur.com/AaRi4kV"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<% if current_user %>
+<h3>Hi <%= current_user.name%>!</h3>
+<%end%>
 <h2>  Here's what we have today!</h2>
 <%@items.each_slice(3) do |three_items|%>
 <div class= "row">
