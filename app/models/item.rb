@@ -4,6 +4,7 @@ class Item < ApplicationRecord
    # Supplier.find_by(id: self.supplier_id)
   #end
   has_many :images
+  has_many :orders
   def sale_message
     
     #if price.to_i < 200
