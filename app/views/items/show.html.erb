@@ -17,5 +17,16 @@
 <%= form_tag "/items/#{@item.id}", method: :delete do %>
 <input type="submit" value="Delete Item">
 <% end %>
+<!--This is the checkout page form-->
+<%= form_tag "/orders", method: :post do%>
+<div>
+Quantity: <input type="integer" name="form_quantity">
+</div>
+<div>
+  Item_Id: <input type="integer" name="form_item_id">
+</div>
+
+<input type="submit" value="Buy Now!">
+<%end%>
 
 <a href="/">Back to all items</a>
