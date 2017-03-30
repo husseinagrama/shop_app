@@ -1,2 +1,5 @@
 <h1>Total Success! You are now a major consumer!!</h1>
-<h2>You have purchased <%= @order.quantity %> of item <%= @order.item_id %> The total cost is a low $<%=@order.total%>!</h2>
+<%= @order.carted_products.each do |carted_product|%>
+
+<h2><%= carted_product.quantity %>  <%= carted_product.item_id %> The total cost is a low $<%=carted_product.total%>!</h2>
+<%end%>

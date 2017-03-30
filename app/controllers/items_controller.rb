@@ -14,6 +14,9 @@ class ItemsController < ApplicationController
       @items = Item.where("price < ?", 300)
       #elsif params[:form_name]
       #@products = Product.where("name LIKE ?"), params[:form_name]
+    elsif params[:category]
+      category = Category.find_by(name: params[:category])
+      @items = category.items
     else
       @items = Item.all
     end

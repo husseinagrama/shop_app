@@ -40,6 +40,9 @@
                <li><a href="/items?discount=true">Discount Item</a></li>
                <!--<li><a href="/items?sort_by price&sort_order=asc">Sort by Price Ascending</a></li>-->
                <li><a href="/items/random">Random item?</a></li>
+               <% Category.all.each do |category|%>
+               <li><a href="/items?category=<%=category.name%>"<%=category.name%></a></li>
+               <%end%>
                
                
                <% if current_user%>

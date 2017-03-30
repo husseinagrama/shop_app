@@ -1,0 +1,7 @@
+<h1>Hello! You've sucessfully added your item to your cart</h1>
+<%@carted_products.each do |carted_product|%>
+<h1><%= carted_product.item_id%></h1>
+<%end%>
+<%= form_tag "/orders", method: :post do%>
+<input type="submit" value="Order Now">
+<%end%>
